@@ -1,0 +1,1114 @@
+//var
+//typography
+$h1       : (size: 6rem, line-height: 6rem, letter-spacing: -.01562em, weight: 300) !default;
+$h2       : (size: 3.75rem, line-height: 3.75rem, letter-spacing: -.00833em, weight: 300) !default;
+$h3       : (size: 3rem, line-height: 3.125rem, letter-spacing: normal, weight: 400) !default;
+$h4       : (size: 2.125rem, line-height: 2.5rem, letter-spacing: .00735em, weight: 400) !default;
+$h5       : (size: 1.5rem, line-height: 2rem, letter-spacing: normal, weight: 400) !default;
+$h6       : (size: 1.25rem, line-height: 2rem, letter-spacing: .0125em, weight: 500) !default;
+$subtitle1: (size: 1rem, line-height: 1.75rem, letter-spacing: .00937em, weight: 400) !default;
+$subtitle2: (size: .875rem, line-height: 1.375rem, letter-spacing: .00714em, weight: 500) !default;
+$body1    : (size: 1rem, line-height: 1.5rem, letter-spacing: .03125em, weight: 400) !default;
+$body2    : (size: .875rem, line-height: 1.25rem, letter-spacing: .01786em, weight: 400) !default;
+$overline : (size: .75rem, line-height: 2rem, letter-spacing: .16667em, weight: 500) !default;
+$caption  : (size: .75rem, line-height: 1.25rem, letter-spacing: .03333em, weight: 400) !default;
+
+$headings: ('h1': $h1, 'h2': $h2, 'h3': $h3, 'h4': $h4, 'h5': $h5, 'h6': $h6, 'subtitle1': $subtitle1, 'subtitle2': $subtitle2, 'body1': $body1, 'body2': $body2, 'overline': $overline, 'caption': $caption) !default;
+
+$h-tags: (h1: map-get($headings, "h1"), h2: map-get($headings, "h2"), h3: map-get($headings, "h3"), h4: map-get($headings, "h4"), h5: map-get($headings, "h5"), h6: map-get($headings, "h6")) !default;
+
+$text-weights: (thin: 100, light: 300, regular: 400, medium: 500, bold: 700, bolder: 900) !default;
+
+$typography-font-family : 'Roboto',
+'-apple-system',
+'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif !default;
+$min-line-height  : 1.12 !default;
+$body-font-size   : 14px !default;
+$body-line-height : 1.5 !default;
+
+// colors
+$colors: ('primary': #1976D2,
+  'info': #4b67af,
+  'danger': #791a15,
+  'blue-1': #1f3695,
+  'blue': #4394e4,
+  'white': #fff,
+  'white-1': #fcfcfc,
+  'white-2': #eceef0,
+  'light': #f9f9f9,
+  'light-1': #d4d9de,
+  'grey': #999,
+  'grey-1': #666,
+  'dark-1': #343440,
+  'dark': #222,
+  'black': #000,
+);
+$border-color  : map-get($colors, 'light-1');
+// font size
+$base-font-size: 1rem;
+$font-sizes    : (xxs: 0.6154,
+  xs: 0.7692,
+  //10px
+  sm: 0.9231,
+  //12px
+  md: 1,
+  //13px
+  lg: 1.0769,
+  //14px
+  xl: 1.2308,
+  //16px,,,,
+);
+$flex-justify: (start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+$flex-ai: (start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+// spacing
+// 0-5: 0
+// .mt-1  => margin top  .pb-2
+$spacing-types: (m: margin,
+  p: padding,
+);
+$spacing-directions: (t: top,
+  r: right,
+  b: bottom,
+  l: left,
+);
+$spacing-base-size: 1rem;
+$spacing-sizes    : (0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3,
+);
+
+// reset css
+
+* {
+  // box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background            : #f1f1f1;
+  font-size             : 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #999;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+//base css
+
+@each $colorKey,
+$color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+
+// text align
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var !important;
+  }
+}
+
+@each $sizeKey,
+$size in $font-sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size * $base-font-size;
+  }
+}
+
+// flex
+.flex {
+  display: flex;
+}
+
+.column {
+  display       : flex;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+@each $key,
+$value in $flex-justify {
+  .justify-#{$key} {
+    justify-content: $value;
+  }
+}
+
+@each $key,
+$value in $flex-ai {
+  .items-#{$key} {
+    align-items: $value;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+// m-0, mx-0
+@each $typeKey,
+$type in $spacing-types {
+
+  // .m-1
+  @each $sizeKey,
+  $size in $spacing-sizes {
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $spacing-base-size;
+    }
+  }
+
+  // .mx-1 , .my-1
+  @each $sizeKey,
+  $size in $spacing-sizes {
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-left : $size * $spacing-base-size;
+      #{$type}-right: $size * $spacing-base-size;
+    }
+
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top   : $size * $spacing-base-size;
+      #{$type}-bottom: $size * $spacing-base-size;
+    }
+  }
+
+  // .mt-1
+  @each $directionKey,
+  $direction in $spacing-directions {
+
+    @each $sizeKey,
+    $size in $spacing-sizes {
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction}: $size * $spacing-base-size;
+      }
+    }
+  }
+}
+
+.mt-auto,
+.my-auto {
+  margin-top: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mb-auto,
+.my-auto {
+  margin-bottom: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin-left : auto;
+  margin-right: auto;
+}
+
+// button
+.btn {
+  border       : none;
+  border-radius: 0.1538rem;
+  font-size    : map-get($font-sizes, 'sm') * $base-font-size;
+  padding      : 0.2rem 0.6rem;
+
+  &.btn-lg {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+    i {
+      color       : map-get($colors, 'primary');
+      font-weight : bold;
+      font-size   : 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    background: map-get($colors, 'white-1');
+    border    : 1px solid map-get($colors, 'white-2');
+    padding   : 0.8rem 1rem;
+    font-size : 1rem;
+  }
+}
+
+// nav
+.nav {
+  display: flex;
+
+  .nav-item {
+    border-bottom : 3px solid transparent;
+    padding-bottom: 0.2rem;
+
+    &.active {
+      color              : map-get($colors, 'primary');
+      border-bottom-color: map-get($colors, 'primary');
+    }
+  }
+
+  &.nav-inverse {
+    .nav-item {
+      color: map-get($colors, 'white');
+
+      &.active {
+        border-bottom-color: map-get($colors, 'white');
+      }
+    }
+  }
+}
+
+// borders
+@each $dir in (top, right, bottom, left) {
+  .border-#{$dir} {
+    border-#{$dir}: 1px solid $border-color;
+  }
+}
+
+
+//helper
+.no-margin {
+  margin: 0 !important
+}
+
+.no-padding {
+  padding: 0 !important
+}
+
+.no-border {
+  border: 0 !important
+}
+
+.no-border-radius {
+  border-radius: 0 !important
+}
+
+.no-box-shadow {
+  box-shadow: none !important
+}
+
+.no-outline {
+  outline: 0 !important
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+  overflow     : hidden;
+
+  &-2-lines,
+  &-3-lines {
+    overflow          : hidden;
+    display           : -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  &-2-lines {
+    -webkit-line-clamp: 2;
+  }
+
+  &-3-lines {
+    -webkit-line-clamp: 3;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+.transparent {
+  background: transparent !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-hidden-y {
+  overflow-y: hidden !important;
+}
+
+.hide-scrollbar {
+  scrollbar-width   : none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width  : 0;
+    height : 0;
+    display: none;
+  }
+}
+
+
+.z-top {
+  z-index: 7000 !important;
+}
+
+.z-max {
+  z-index: 9998 !important;
+}
+
+.fit {
+  width : 100% !important;
+  height: 100% !important;
+}
+
+.full-height {
+  height: 100% !important;
+}
+
+.full-width {
+  width       : 100% !important;
+  margin-left : 0 !important;
+  margin-right: 0 !important;
+}
+
+.window-height {
+  margin-top   : 0 !important;
+  margin-bottom: 0 !important;
+  height       : 100vh !important;
+}
+
+.window-width {
+  margin-left : 0 !important;
+  margin-right: 0 !important;
+  width       : 100vw !important;
+}
+
+.block {
+  display: block !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+//mouse
+.non-selectable {
+  user-select: none !important;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+.scroll,
+.scroll-x,
+.scroll-y {
+  -webkit-overflow-scrolling: touch;
+  will-change               : scroll-position;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+.scroll-y {
+  overflow-y: auto;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.no-pointer-events,
+.no-pointer-events--children,
+.no-pointer-events--children * {
+  pointer-events: none !important;
+}
+
+.all-pointer-events {
+  pointer-events: all !important;
+}
+
+.cursor {
+  &-pointer {
+    cursor: pointer !important;
+  }
+
+  &-not-allowed {
+    cursor: not-allowed !important;
+  }
+
+  &-inherit {
+    cursor: inherit !important;
+  }
+
+  &-none {
+    cursor: none !important;
+  }
+}
+
+[aria-busy='true'] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled] {
+  cursor: default;
+}
+
+//orientation
+.rotate-45 {
+  transform: rotate(45deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate-135 {
+  transform: rotate(135deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-225 {
+  transform: rotate(225deg);
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.rotate-315 {
+  transform: rotate(315deg);
+}
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+
+.flip-vertical {
+  transform: scaleY(-1);
+}
+
+//transitions
+:root {
+  --transition-duration: .3s;
+  --transition-easing  : cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.transition--slide-right-leave-active,
+.transition--slide-left-leave-active,
+.transition--slide-up-leave-active,
+.transition--slide-down-leave-active,
+.transition--jump-right-leave-active,
+.transition--jump-left-leave-active,
+.transition--jump-up-leave-active,
+.transition--jump-down-leave-active,
+.transition--fade-leave-active,
+.transition--scale-leave-active,
+.transition--rotate-leave-active,
+.transition--flip-leave-active {
+  position: absolute;
+}
+
+.transition--slide-right-enter-active,
+.transition--slide-right-leave-active,
+.transition--slide-left-enter-active,
+.transition--slide-left-leave-active,
+.transition--slide-up-enter-active,
+.transition--slide-up-leave-active,
+.transition--slide-down-enter-active,
+.transition--slide-down-leave-active {
+  transition: transform var(--transition-duration) var(--transition-easing);
+}
+
+.transition--slide-right-enter-from {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.transition--slide-right-leave-to {
+  transform: translate3d(100%, 0, 0);
+}
+
+.transition--slide-left-enter-from {
+  transform: translate3d(100%, 0, 0);
+}
+
+.transition--slide-left-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.transition--slide-up-enter-from {
+  transform: translate3d(0, 100%, 0);
+}
+
+.transition--slide-up-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+
+.transition--slide-down-enter-from {
+  transform: translate3d(0, -100%, 0);
+}
+
+.transition--slide-down-leave-to {
+  transform: translate3d(0, 100%, 0);
+}
+
+.transition--jump-right-enter-active,
+.transition--jump-right-leave-active,
+.transition--jump-left-enter-active,
+.transition--jump-left-leave-active,
+.transition--jump-up-enter-active,
+.transition--jump-up-leave-active,
+.transition--jump-down-enter-active,
+.transition--jump-down-leave-active {
+  transition: opacity var(--transition-duration), transform var(--transition-duration);
+}
+
+.transition--jump-right-enter-from,
+.transition--jump-right-leave-to,
+.transition--jump-left-enter-from,
+.transition--jump-left-leave-to,
+.transition--jump-up-enter-from,
+.transition--jump-up-leave-to,
+.transition--jump-down-enter-from,
+.transition--jump-down-leave-to {
+  opacity: 0;
+}
+
+.transition--jump-right-enter-from {
+  transform: translate3d(-15px, 0, 0);
+}
+
+.transition--jump-right-leave-to {
+  transform: translate3d(15px, 0, 0);
+}
+
+.transition--jump-left-enter-from {
+  transform: translate3d(15px, 0, 0);
+}
+
+.transition--jump-left-leave-to {
+  transform: translateX(-15px);
+}
+
+.transition--jump-up-enter-from {
+  transform: translate3d(0, 15px, 0);
+}
+
+.transition--jump-up-leave-to {
+  transform: translate3d(0, -15px, 0);
+}
+
+.transition--jump-down-enter-from {
+  transform: translate3d(0, -15px, 0);
+}
+
+.transition--jump-down-leave-to {
+  transform: translate3d(0, 15px, 0);
+}
+
+.transition--fade-enter-active,
+.transition--fade-leave-active {
+  transition: opacity var(--transition-duration) ease-out;
+}
+
+.transition--fade-enter-from,
+.transition--fade-leave-to {
+  opacity: 0;
+}
+
+.transition--scale-enter-active,
+.transition--scale-leave-active {
+  transition: opacity var(--transition-duration), transform var(--transition-duration) var(--transition-easing);
+}
+
+.transition--scale-enter-from,
+.transition--scale-leave-to {
+  opacity  : 0;
+  transform: scale3d(0, 0, 1);
+}
+
+.transition--rotate-enter-active,
+.transition--rotate-leave-active {
+  transition     : opacity var(--transition-duration), transform var(--transition-duration) var(--transition-easing);
+  transform-style: preserve-3d;
+}
+
+.transition--rotate-enter-from,
+.transition--rotate-leave-to {
+  opacity  : 0;
+  transform: scale3d(0, 0, 1) rotate3d(0, 0, 1, 90deg);
+}
+
+.transition--flip-right-enter-active,
+.transition--flip-right-leave-active,
+.transition--flip-left-enter-active,
+.transition--flip-left-leave-active,
+.transition--flip-up-enter-active,
+.transition--flip-up-leave-active,
+.transition--flip-down-enter-active,
+.transition--flip-down-leave-active {
+  transition         : transform var(--transition-duration);
+  backface-visibility: hidden;
+}
+
+.transition--flip-right-enter-to,
+.transition--flip-right-leave-from,
+.transition--flip-left-enter-to,
+.transition--flip-left-leave-from,
+.transition--flip-up-enter-to,
+.transition--flip-up-leave-from,
+.transition--flip-down-enter-to,
+.transition--flip-down-leave-from {
+  transform: perspective(400px) rotate3d(1, 1, 0, 0deg);
+}
+
+.transition--flip-right-enter-from {
+  transform: perspective(400px) rotate3d(0, 1, 0, -180deg);
+}
+
+.transition--flip-right-leave-to {
+  transform: perspective(400px) rotate3d(0, 1, 0, 180deg);
+}
+
+.transition--flip-left-enter-from {
+  transform: perspective(400px) rotate3d(0, 1, 0, 180deg);
+}
+
+.transition--flip-left-leave-to {
+  transform: perspective(400px) rotate3d(0, 1, 0, -180deg);
+}
+
+.transition--flip-up-enter-from {
+  transform: perspective(400px) rotate3d(1, 0, 0, -180deg);
+}
+
+.transition--flip-up-leave-to {
+  transform: perspective(400px) rotate3d(1, 0, 0, 180deg);
+}
+
+.transition--flip-down-enter-from {
+  transform: perspective(400px) rotate3d(1, 0, 0, 180deg);
+}
+
+.transition--flip-down-leave-to {
+  transform: perspective(400px) rotate3d(1, 0, 0, -180deg);
+}
+
+
+//positioning
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.relative-position {
+  position: relative;
+}
+
+.fixed,
+.fixed-full,
+.fullscreen,
+.fixed-center,
+.fixed-bottom,
+.fixed-left,
+.fixed-right,
+.fixed-top,
+.fixed-top-left,
+.fixed-top-right,
+.fixed-bottom-left,
+.fixed-bottom-right {
+  position: fixed;
+}
+
+.absolute,
+.absolute-full,
+.absolute-center,
+.absolute-bottom,
+.absolute-left,
+.absolute-right,
+.absolute-top,
+.absolute-top-left,
+.absolute-top-right,
+.absolute-bottom-left,
+.absolute-bottom-right {
+  position: absolute;
+}
+
+.fixed-top,
+.absolute-top {
+  top  : 0;
+  left : 0;
+  right: 0;
+}
+
+.fixed-right,
+.absolute-right {
+  top   : 0;
+  right : 0;
+  bottom: 0;
+}
+
+.fixed-bottom,
+.absolute-bottom {
+  right : 0;
+  bottom: 0;
+  left  : 0;
+}
+
+.fixed-left,
+.absolute-left {
+  top   : 0;
+  bottom: 0;
+  left  : 0;
+}
+
+.fixed-top-left,
+.absolute-top-left {
+  top : 0;
+  left: 0;
+}
+
+.fixed-top-right,
+.absolute-top-right {
+  top  : 0;
+  right: 0;
+}
+
+.fixed-bottom-left,
+.absolute-bottom-left {
+  bottom: 0;
+  left  : 0;
+}
+
+.fixed-bottom-right,
+.absolute-bottom-right {
+  bottom: 0;
+  right : 0;
+}
+
+.fullscreen {
+  z-index      : 6000;
+  border-radius: 0 !important;
+  max-width    : 100vw;
+  max-height   : 100vh;
+}
+
+.absolute-full,
+.fullscreen,
+.fixed-full {
+  top   : 0;
+  right : 0;
+  bottom: 0;
+  left  : 0;
+}
+
+.fixed-center,
+.absolute-center {
+  top      : 50%;
+  left     : 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vertical-top {
+  vertical-align: top !important;
+}
+
+.vertical-middle {
+  vertical-align: middle !important;
+}
+
+.vertical-bottom {
+  vertical-align: bottom !important;
+}
+
+.on-left {
+  margin-right: 12px;
+}
+
+.on-right {
+  margin-left: 12px;
+}
+
+//typography
+body {
+  min-width                  : 100px;
+  min-height                 : 100%;
+  // font-family             : "Roboto", "-apple-system", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family                : -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -ms-text-size-adjust    : 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing  : antialiased;
+  -moz-osx-font-smoothing : grayscale;
+  line-height             : 1.5;
+  font-size               : 14px;
+}
+
+h1 {
+  font-size     : 6rem;
+  font-weight   : 300;
+  line-height   : 6rem;
+  letter-spacing: -0.01562em;
+}
+
+h2 {
+  font-size     : 3.75rem;
+  font-weight   : 300;
+  line-height   : 3.75rem;
+  letter-spacing: -0.00833em;
+}
+
+h3 {
+  font-size     : 3rem;
+  font-weight   : 400;
+  line-height   : 3.125rem;
+  letter-spacing: normal;
+}
+
+h4 {
+  font-size     : 2.125rem;
+  font-weight   : 400;
+  line-height   : 2.5rem;
+  letter-spacing: 0.00735em;
+}
+
+h5 {
+  font-size     : 1.5rem;
+  font-weight   : 400;
+  line-height   : 2rem;
+  letter-spacing: normal;
+}
+
+h6 {
+  font-size     : 1.25rem;
+  font-weight   : 500;
+  line-height   : 2rem;
+  letter-spacing: 0.0125em;
+}
+
+p {
+  margin: 0 0;
+}
+
+.text-h1 {
+  font-size     : 6rem;
+  font-weight   : 300;
+  line-height   : 6rem;
+  letter-spacing: -0.01562em;
+}
+
+.text-h2 {
+  font-size     : 3.75rem;
+  font-weight   : 300;
+  line-height   : 3.75rem;
+  letter-spacing: -0.00833em;
+}
+
+.text-h3 {
+  font-size     : 3rem;
+  font-weight   : 400;
+  line-height   : 3.125rem;
+  letter-spacing: normal;
+}
+
+.text-h4 {
+  font-size     : 2.125rem;
+  font-weight   : 400;
+  line-height   : 2.5rem;
+  letter-spacing: 0.00735em;
+}
+
+.text-h5 {
+  font-size     : 1.5rem;
+  font-weight   : 400;
+  line-height   : 2rem;
+  letter-spacing: normal;
+}
+
+.text-h6 {
+  font-size     : 1.25rem;
+  font-weight   : 500;
+  line-height   : 2rem;
+  letter-spacing: 0.0125em;
+}
+
+.text-subtitle1 {
+  font-size     : 1rem;
+  font-weight   : 400;
+  line-height   : 1.75rem;
+  letter-spacing: 0.00937em;
+}
+
+.text-subtitle2 {
+  font-size     : 0.875rem;
+  font-weight   : 500;
+  line-height   : 1.375rem;
+  letter-spacing: 0.00714em;
+}
+
+.text-body1 {
+  font-size     : 1rem;
+  font-weight   : 400;
+  line-height   : 1.5rem;
+  letter-spacing: 0.03125em;
+}
+
+.text-body2 {
+  font-size     : 0.875rem;
+  font-weight   : 400;
+  line-height   : 1.25rem;
+  letter-spacing: 0.01786em;
+}
+
+.text-overline {
+  font-size     : 0.75rem;
+  font-weight   : 500;
+  line-height   : 2rem;
+  letter-spacing: 0.16667em;
+}
+
+.text-caption {
+  font-size     : 0.75rem;
+  font-weight   : 400;
+  line-height   : 1.25rem;
+  letter-spacing: 0.03333em;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+  hyphens   : auto;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-no-wrap {
+  white-space: nowrap;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+.text-weight-thin {
+  font-weight: 100;
+}
+
+.text-weight-light {
+  font-weight: 300;
+}
+
+.text-weight-regular {
+  font-weight: 400;
+}
+
+.text-weight-medium {
+  font-weight: 500;
+}
+
+.text-weight-bold {
+  font-weight: 700;
+}
+
+.text-weight-bolder {
+  font-weight: 900;
+}
+
+small {
+  font-size: 80%;
+}
+
+big {
+  font-size: 170%;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
