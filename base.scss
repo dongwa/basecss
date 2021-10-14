@@ -26,7 +26,7 @@ Helvetica,
 Arial,
 sans-serif !default;
 $min-line-height  : 1.12 !default;
-$body-font-size   : 14px !default;
+$body-font-size   : 14Px !default;
 $body-line-height : 1.5 !default;
 
 // colors
@@ -51,15 +51,15 @@ $border-color  : map-get($colors, 'light-1');
 $base-font-size: 1rem;
 $font-sizes    : (xxs: 0.6154,
   xs: 0.7692,
-  //10px
+  //10Px
   sm: 0.9231,
-  //12px
+  //12Px
   md: 1,
-  //13px
+  //13Px
   lg: 1.0769,
-  //14px
+  //14Px
   xl: 1.2308,
-  //16px,,,,
+  //16Px,,,,
 );
 $flex-justify: (start: flex-start,
   end: flex-end,
@@ -105,7 +105,7 @@ body {
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  font-size             : 14px;
+  font-size             : 14Px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -250,7 +250,7 @@ $type in $spacing-types {
 // borders
 @each $dir in (top, right, bottom, left) {
   .border-#{$dir} {
-    border-#{$dir}: 1px solid $border-color;
+    border-#{$dir}: 1Px solid $border-color;
   }
 }
 
@@ -572,35 +572,35 @@ $type in $spacing-types {
 }
 
 .transition--jump-right-enter-from {
-  transform: translate3d(-15px, 0, 0);
+  transform: translate3d(-15Px, 0, 0);
 }
 
 .transition--jump-right-leave-to {
-  transform: translate3d(15px, 0, 0);
+  transform: translate3d(15Px, 0, 0);
 }
 
 .transition--jump-left-enter-from {
-  transform: translate3d(15px, 0, 0);
+  transform: translate3d(15Px, 0, 0);
 }
 
 .transition--jump-left-leave-to {
-  transform: translateX(-15px);
+  transform: translateX(-15Px);
 }
 
 .transition--jump-up-enter-from {
-  transform: translate3d(0, 15px, 0);
+  transform: translate3d(0, 15Px, 0);
 }
 
 .transition--jump-up-leave-to {
-  transform: translate3d(0, -15px, 0);
+  transform: translate3d(0, -15Px, 0);
 }
 
 .transition--jump-down-enter-from {
-  transform: translate3d(0, -15px, 0);
+  transform: translate3d(0, -15Px, 0);
 }
 
 .transition--jump-down-leave-to {
-  transform: translate3d(0, 15px, 0);
+  transform: translate3d(0, 15Px, 0);
 }
 
 .transition--fade-enter-active,
@@ -656,39 +656,39 @@ $type in $spacing-types {
 .transition--flip-up-leave-from,
 .transition--flip-down-enter-to,
 .transition--flip-down-leave-from {
-  transform: perspective(400px) rotate3d(1, 1, 0, 0deg);
+  transform: perspective(400Px) rotate3d(1, 1, 0, 0deg);
 }
 
 .transition--flip-right-enter-from {
-  transform: perspective(400px) rotate3d(0, 1, 0, -180deg);
+  transform: perspective(400Px) rotate3d(0, 1, 0, -180deg);
 }
 
 .transition--flip-right-leave-to {
-  transform: perspective(400px) rotate3d(0, 1, 0, 180deg);
+  transform: perspective(400Px) rotate3d(0, 1, 0, 180deg);
 }
 
 .transition--flip-left-enter-from {
-  transform: perspective(400px) rotate3d(0, 1, 0, 180deg);
+  transform: perspective(400Px) rotate3d(0, 1, 0, 180deg);
 }
 
 .transition--flip-left-leave-to {
-  transform: perspective(400px) rotate3d(0, 1, 0, -180deg);
+  transform: perspective(400Px) rotate3d(0, 1, 0, -180deg);
 }
 
 .transition--flip-up-enter-from {
-  transform: perspective(400px) rotate3d(1, 0, 0, -180deg);
+  transform: perspective(400Px) rotate3d(1, 0, 0, -180deg);
 }
 
 .transition--flip-up-leave-to {
-  transform: perspective(400px) rotate3d(1, 0, 0, 180deg);
+  transform: perspective(400Px) rotate3d(1, 0, 0, 180deg);
 }
 
 .transition--flip-down-enter-from {
-  transform: perspective(400px) rotate3d(1, 0, 0, 180deg);
+  transform: perspective(400Px) rotate3d(1, 0, 0, 180deg);
 }
 
 .transition--flip-down-leave-to {
-  transform: perspective(400px) rotate3d(1, 0, 0, -180deg);
+  transform: perspective(400Px) rotate3d(1, 0, 0, -180deg);
 }
 
 
@@ -822,16 +822,16 @@ $type in $spacing-types {
 }
 
 .on-left {
-  margin-right: 12px;
+  margin-right: 12Px;
 }
 
 .on-right {
-  margin-left: 12px;
+  margin-left: 12Px;
 }
 
 //typography
 body {
-  min-width                  : 100px;
+  min-width                  : 100Px;
   min-height                 : 100%;
   // font-family             : "Roboto", "-apple-system", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-family                : -apple-system, BlinkMacSystemFont,
@@ -843,7 +843,7 @@ body {
   -webkit-font-smoothing  : antialiased;
   -moz-osx-font-smoothing : grayscale;
   line-height             : 1.5;
-  font-size               : 14px;
+  font-size               : 14Px;
 }
 
 h1 {
